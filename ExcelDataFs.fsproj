@@ -6,13 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Configuration.fs" />
-    <Compile Include="DataGeneration.fs" />
-    <Compile Include="ExcelExport.fs" />
-    <Compile Include="History.fs" />
-    <Compile Include="Commands.fs" />
-    <Compile Include="Queries.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="Domain/Config.fs" />
+    <Compile Include="Domain/HistoryEntry.fs" />
+    <Compile Include="Infrastructure/ConfigLoader.fs" />
+    <Compile Include="Infrastructure/DataGeneration.fs" />
+    <Compile Include="Infrastructure/ExcelExport.fs" />
+    <Compile Include="Infrastructure/HistoryRepository.fs" />
+    <Compile Include="Application/Commands/GenerateCommand.fs" />
+    <Compile Include="Application/Queries/LastQuery.fs" />
+    <Compile Include="CLI/Program.fs" />
   </ItemGroup>
 
   <ItemGroup>

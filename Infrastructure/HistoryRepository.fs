@@ -1,12 +1,8 @@
-module History
+module Infrastructure.HistoryRepository
 
 open System
 open System.IO
-
-type HistoryEntry =
-    { FileName: string
-      Directory: string
-      GeneratedAt: DateTime }
+open Domain.HistoryEntry
 
 let dataFilePath =
     Path.Combine(AppContext.BaseDirectory, "data.txt")

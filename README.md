@@ -55,6 +55,27 @@ El archivo `appsettings.json` permite personalizar:
 | `DataGeneration` | `DecimalMin` / `DecimalMax` | Rango para decimales aleatorios | `0.0` - `100.0`    |
 | `DataGeneration` | `GuidColumns`    | Cantidad de columnas GUID            | `7`                      |
 
+## Estructura del proyecto
+
+```
+ExcelDataFs/
+├── Domain/
+│   ├── Config.fs           -- Tipos puros: ExcelConfig, DataGenerationConfig, AppConfig
+│   └── HistoryEntry.fs     -- Tipo: HistoryEntry (record sin IO)
+├── Application/
+│   ├── Commands/
+│   │   └── GenerateCommand.fs  -- Orquesta: genera datos → exporta Excel → registra historial
+│   └── Queries/
+│       └── LastQuery.fs        -- Consulta el último archivo del historial
+├── Infrastructure/
+│   ├── ConfigLoader.fs     -- Carga appsettings.json (IO + parsing JSON)
+│   ├── DataGeneration.fs   -- Generación de datos aleatorios
+│   ├── ExcelExport.fs      -- Escritura de .xlsx con ClosedXML
+│   └── HistoryRepository.fs -- Lectura/escritura de data.txt
+└── CLI/
+    └── Program.fs          -- Entry point: parseo de argv, despacho
+```
+
 ## Licencia
 
 MIT

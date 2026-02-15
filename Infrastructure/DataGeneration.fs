@@ -1,7 +1,7 @@
-module DataGeneration
+module Infrastructure.DataGeneration
 
 open System
-open Configuration
+open Domain.Config
 
 let randomInt (random: Random) min max =
     random.Next(min, max + 1)

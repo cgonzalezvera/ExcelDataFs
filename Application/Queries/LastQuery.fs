@@ -1,7 +1,7 @@
-module Queries
+module Application.Queries.LastQuery
 
 open System.IO
-open History
+open Infrastructure.HistoryRepository
 
 let execute () =
     match getLastEntry () with

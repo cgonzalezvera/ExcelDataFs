@@ -1,7 +1,7 @@
-module ExcelExport
+module Infrastructure.ExcelExport
 
 open ClosedXML.Excel
-open Configuration
+open Domain.Config
 
 let exportToExcel (config: ExcelConfig) (data: obj array array) =
     let outputPath = resolveOutputPath config

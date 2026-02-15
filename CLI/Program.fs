@@ -1,5 +1,5 @@
 open System.IO
-open Configuration
+open Infrastructure.ConfigLoader
 
 [<EntryPoint>]
 let main argv =
@@ -9,9 +9,9 @@ let main argv =
     match argv |> Array.toList with
     | ["--generate"] ->
         let config = loadConfig configPath
-        Commands.execute config
+        Application.Commands.GenerateCommand.execute config
     | ["--last"] ->
-        Queries.execute ()
+        Application.Queries.LastQuery.execute ()
     | _ ->
         printfn "Uso: ExcelDataFs <comando>"
         printfn ""

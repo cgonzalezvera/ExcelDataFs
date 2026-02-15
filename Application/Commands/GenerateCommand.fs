@@ -1,11 +1,12 @@
-module Commands
+module Application.Commands.GenerateCommand
 
 open System
 open System.IO
-open Configuration
-open DataGeneration
-open ExcelExport
-open History
+open Domain.Config
+open Domain.HistoryEntry
+open Infrastructure.DataGeneration
+open Infrastructure.ExcelExport
+open Infrastructure.HistoryRepository
 
 let execute (config: AppConfig) =
     let random = Random()
